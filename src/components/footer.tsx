@@ -20,7 +20,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/admin" className="text-gray-300 hover:text-white transition-colors">
+                <Link href="/" className="text-gray-300 hover:text-white transition-colors">
                   Administración
                 </Link>
               </li>
@@ -72,7 +72,7 @@ export default function Footer() {
             <div className="mt-4">
               <p className="text-gray-300">Contáctanos:</p>
               <p className="text-gray-300">info@menudigital.com</p>
-              <p className="text-gray-300">+52 55 1234 5678</p>
+              <p className="text-gray-300">+52 981 125 0049</p>
             </div>
           </div>
         </div>
