@@ -1,4 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Digital Menu
+
+## Description
+
+Digital Menu is a web application designed to manage digital menus for restaurants. It allows users to explore products, categories, promotions, and place orders via WhatsApp.
+
+## Main Features
+
+- **Shopping Cart**: Users can add products to the cart, adjust quantities, and place orders.
+- **Category and Product Management**: Organize products into categories for easier navigation.
+- **Promotions**: Apply discounts and promotions to selected products.
+- **WhatsApp Integration**: Orders are sent directly via WhatsApp.
+- **Modern Interface**: Responsive and attractive design using Tailwind CSS.
+
+## Technologies Used
+
+- **Next.js**: React framework for web applications.
+- **TypeScript**: Static typing for JavaScript.
+- **Tailwind CSS**: Utility-first CSS framework for design.
+- **Framer Motion**: Smooth and modern animations.
+- **LocalStorage**: Simulated database for data persistence.
+
+## Project Structure
+
+```
+public/         # Static files
+src/
+  app/          # Pages and main layout
+  components/   # Reusable components
+  hooks/        # Custom hooks
+  lib/          # Business logic and utilities
+  store/        # Global state management
+```
+
+## Installation
+
+1. Clone this repository:
+   ```bash
+   git clone <https://github.com/deiviiss/menu-digital.git>
+   ```
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+3. Start the development server:
+   ```bash
+   pnpm dev
+   ```
+
+## Available Scripts
+
+- `pnpm dev`: Starts the development server.
+- `pnpm build`: Builds the application for production.
+- `pnpm start`: Starts the application in production mode.
+
+## Contribution
+
+1. Fork the project.
+2. Create a branch for your feature or bug fix:
+   ```bash
+   git checkout -b feature/new-feature
+   ```
+3. Make your changes and commit them:
+   ```bash
+   git commit -m "Add new feature"
+   ```
+4. Push your changes:
+   ```bash
+   git push origin feature/new-feature
+   ```
+5. Open a Pull Request.
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
 ## Getting Started
 
@@ -28,9 +102,3 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
