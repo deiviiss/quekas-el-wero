@@ -47,6 +47,7 @@ export function SidebarCart() {
 
     // Close sidebar after sending order
     closeSideCart()
+    clearCart()
   }
 
   const handleRemoveItem = (productId: string, productName: string) => {
