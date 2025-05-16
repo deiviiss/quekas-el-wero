@@ -15,15 +15,15 @@ export const ToogleDarkMode = () => {
     <>
       <Button
         variant="default"
-        size="icon"
-        className="fixed bottom-4 left-2 z-40"
+        size="sm"
+        className="fixed bottom-4 right-3 z-40"
         onClick={toggleTheme}
       >
         {theme === 'light'
           ? (
-            <SunIcon className="h-[1.2rem] w-[1.2rem]" />)
+            <SunIcon />)
           : (
-            <MoonIcon className="h-[1.2rem] w-[1.2rem]" />)
+            <MoonIcon />)
         }
         <span className="sr-only">Toggle theme</span>
       </Button>
