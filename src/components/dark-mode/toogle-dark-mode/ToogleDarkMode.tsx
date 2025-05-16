@@ -14,9 +14,9 @@ export const ToogleDarkMode = () => {
   return (
     <>
       <Button
-        variant="ghost"
+        variant="default"
         size="icon"
-        className="rounded-md hidden"
+        className="fixed bottom-4 left-2 z-40"
         onClick={toggleTheme}
       >
         {theme === 'light'

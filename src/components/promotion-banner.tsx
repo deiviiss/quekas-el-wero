@@ -66,7 +66,7 @@ export function PromotionBanner({ promotions, products }: PromotionBannerProps) 
         return (
           <motion.div
             key={promotion.id}
-            className="bg-white rounded-lg shadow-md overflow-hidden"
+            className="bg-card dark:border dark:border-primary rounded-lg shadow-md overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -85,28 +85,28 @@ export function PromotionBanner({ promotions, products }: PromotionBannerProps) 
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4">
                 <h3 className="font-bold text-xl text-white">{promotion.name}</h3>
                 <div className="flex items-center mt-1">
-                  <Tag className="h-4 w-4 text-orange-300 mr-1" />
-                  <span className="text-orange-300 font-semibold text-sm">
+                  <Tag className="h-4 w-4 text-secondary dark:text-primary mr-1" />
+                  <span className="text-secondary dark:text-primary font-semibold text-sm">
                     {promotion.discountPercentage}% DESCUENTO
                   </span>
                 </div>
               </div>
             </div>
             <div className="p-4">
-              <p className="text-gray-600 mb-3">{promotion.description}</p>
+              <p className="text-muted-foreground mb-3">{promotion.description}</p>
               <div className="flex justify-between items-center mb-4">
                 <div>
-                  <span className="text-lg font-bold text-red-500">${discountedPrice.toFixed(2)}</span>
-                  <span className="text-sm text-gray-500 line-through ml-2">${totalPrice.toFixed(2)}</span>
+                  <span className="text-lg font-bold text-destructive">${discountedPrice.toFixed(2)}</span>
+                  <span className="text-sm text-muted-foreground line-through ml-2">${totalPrice.toFixed(2)}</span>
                 </div>
-                <span className="bg-red-100 text-red-800 text-xs font-semibold px-2 py-1 rounded">
+                <span className="bg-destructive/20 text-red-800 text-xs font-semibold px-2 py-1 rounded">
                   AHORRA ${(totalPrice - discountedPrice).toFixed(2)}
                 </span>
               </div>
               <Button
                 onClick={() => handleAddPromoToCart(promotion)}
                 disabled={isLoading}
-                className="w-full bg-orange-500 hover:bg-orange-600 transition-colors"
+                className="w-full bg-primary hover:bg-primary/80 transition-colors"
               >
                 <ShoppingCart className="mr-2 h-4 w-4" />
                 Agregar al carrito

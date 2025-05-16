@@ -44,7 +44,7 @@ export function SidebarCategories({ categories }: SidebarCategoriesProps) {
       <div
         className={
           cn(
-            "fixed md:sticky top-0 left-0 h-full md:h-auto w-[250px] md:w-[190px] lg:w-full bg-white shadow-xl z-50 md:z-0 transform transition-transform duration-300 ease-in-out md:translate-x-0",
+            "fixed md:sticky top-0 left-0 h-full md:h-auto w-[250px] md:w-[190px] lg:w-full bg-card shadow-xl z-50 md:z-0 transform transition-transform duration-300 ease-in-out md:translate-x-0",
             isCategoriesOpen ? "translate-x-0" : "-translate-x-full",
           )
         }
@@ -55,7 +55,7 @@ export function SidebarCategories({ categories }: SidebarCategoriesProps) {
             <h2 className="text-lg font-semibold" > Categorías </h2>
             < button
               onClick={closeCategories}
-              className="p-1 rounded-full hover:bg-gray-100 transition-colors md:hidden"
+              className="p-1 rounded-full hover:bg-muted transition-colors md:hidden"
               aria-label="Cerrar categorías"
             >
               <X className="h-6 w-6" />
@@ -80,7 +80,7 @@ export function SidebarCategories({ categories }: SidebarCategoriesProps) {
                   >
                     <motion.button
                       onClick={() => scrollToCategory(category.id)}
-                      className="w-full text-left px-4 py-3 hover:bg-orange-50 transition-colors"
+                      className="w-full text-left px-4 py-3 hover:bg-primary/10 transition-colors"
                       whileHover={{ x: 5 }}
                     >
                       {category.name}

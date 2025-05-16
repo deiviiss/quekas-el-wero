@@ -13,7 +13,7 @@ export function SidebarCart() {
   const { isSideCartOpen, closeSideCart } = useUiStore()
   const { cart, removeFromCart, updateQuantity, clearCart, getSubtotal } = useCartStore()
 
-  // Cerrar el sidebar con la tecla Escape
+  // Close sidebar with Escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -26,11 +26,11 @@ export function SidebarCart() {
   }, [closeSideCart])
 
   const handleWhatsAppCheckout = () => {
-    const phoneNumber = "5219811250049" // Número del negocio
+    const phoneNumber = "5219811250049" // Business phone number
 
     let message = "🛒 *Nuevo Pedido*\n\n"
 
-    // Agregar productos al mensaje
+    // Add products to message
     cart.forEach((item) => {
       const price = item.product.promotionPrice || item.product.price
       message += `*${item.quantity}x* ${item.product.name} - $${price.toFixed(2)}\n`
@@ -39,13 +39,13 @@ export function SidebarCart() {
     message += `\n*Total:* $${getSubtotal().toFixed(2)}\n\n`
     message += "¡Gracias por tu pedido! Por favor, confirma los detalles de entrega."
 
-    // Codificar el mensaje para URL
+    // Encode message for URL
     const encodedMessage = encodeURIComponent(message)
 
-    // Abrir WhatsApp con el mensaje
+    // Open WhatsApp with message
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank")
 
-    // Cerrar el sidebar después de enviar el pedido
+    // Close sidebar after sending order
     closeSideCart()
   }
 
@@ -65,7 +65,7 @@ export function SidebarCart() {
 
   return (
     <>
-      {/* Overlay de fondo */}
+      {/* Background overlay */}
       <AnimatePresence>
         {isSideCartOpen && (
           <motion.div
@@ -79,36 +79,36 @@ export function SidebarCart() {
         )}
       </AnimatePresence>
 
-      {/* Sidebar del carrito */}
+      {/* Cart sidebar */}
       <div
         className={cn(
-          "fixed top-0 right-0 h-full w-full sm:w-[350px] bg-white shadow-xl z-50 transform transition-transform duration-300 ease-in-out",
+          "fixed top-0 right-0 h-full w-full sm:w-[350px] bg-card shadow-xl z-50 transform transition-transform duration-300 ease-in-out",
           isSideCartOpen ? "translate-x-0" : "translate-x-full",
         )}
       >
         <div className="flex flex-col h-full">
-          {/* Encabezado */}
+          {/* Header */}
           <div className="flex justify-between items-center p-4 border-b">
             <div className="flex items-center">
-              <ShoppingBag className="h-5 w-5 text-orange-500 mr-2" />
+              <ShoppingBag className="h-5 w-5 text-primary mr-2" />
               <h2 className="text-lg font-semibold">Tu Carrito</h2>
             </div>
             <button
               onClick={closeSideCart}
-              className="p-1 rounded-full hover:bg-gray-100 transition-colors"
+              className="p-1 rounded-full hover:bg-muted transition-colors"
               aria-label="Cerrar carrito"
             >
               <X className="h-6 w-6" />
             </button>
           </div>
 
-          {/* Contenido del carrito */}
+          {/* Cart content */}
           <div className="flex-1 overflow-y-auto p-4">
             {cart.length === 0 ? (
-              <div className="flex flex-col items-center justify-center h-full text-gray-500">
+              <div className="flex flex-col items-center justify-center h-full text-muted-foreground">
                 <ShoppingBag className="h-16 w-16 mb-4 opacity-30" />
                 <p className="text-center">Tu carrito está vacío</p>
-                <Button variant="link" className="mt-2 text-orange-500" onClick={closeSideCart}>
+                <Button variant="link" className="mt-2 text-primary" onClick={closeSideCart}>
                   Continuar comprando
                 </Button>
               </div>
@@ -122,7 +122,7 @@ export function SidebarCart() {
                     exit={{ opacity: 0, y: -10 }}
                     className="flex gap-3 border-b pb-4"
                   >
-                    {/* Imagen del producto */}
+                    {/* Product image */}
                     <div className="relative h-16 w-16 rounded-md overflow-hidden flex-shrink-0">
                       <Image
                         src={item.product.image || "/placeholder.svg?height=64&width=64"}
@@ -132,34 +132,34 @@ export function SidebarCart() {
                       />
                     </div>
 
-                    {/* Detalles del producto */}
+                    {/* Product details */}
                     <div className="flex-1">
                       <h3 className="font-medium text-sm">{item.product.name}</h3>
                       <div className="flex items-center mt-1">
                         <button
                           onClick={() => updateQuantity(item.product.id, Math.max(1, item.quantity - 1))}
-                          className="text-gray-500 hover:text-orange-500 w-6 h-6 flex items-center justify-center"
+                          className="text-muted-foreground  hover:text-primary w-6 h-6 flex items-center justify-center"
                         >
                           -
                         </button>
                         <span className="mx-2 w-6 text-center text-sm">{item.quantity}</span>
                         <button
                           onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                          className="text-gray-500 hover:text-orange-500 w-6 h-6 flex items-center justify-center"
+                          className="text-muted-foreground hover:text-primary w-6 h-6 flex items-center justify-center"
                         >
                           +
                         </button>
                       </div>
                     </div>
 
-                    {/* Precio y botón de eliminar */}
+                    {/* Price and remove button */}
                     <div className="flex flex-col items-end">
                       <span className="font-medium text-sm">
                         ${((item.product.promotionPrice || item.product.price) * item.quantity).toFixed(2)}
                       </span>
                       <button
                         onClick={() => handleRemoveItem(item.product.id, item.product.name)}
-                        className="text-red-500 hover:text-red-700 mt-1"
+                        className="text-destructive/70 hover:text-destructive mt-1"
                       >
                         <Trash2 className="h-4 w-4" />
                       </button>
@@ -170,13 +170,13 @@ export function SidebarCart() {
             )}
           </div>
 
-          {/* Resumen y botones de acción */}
+          {/* Summary and action buttons */}
           {cart.length > 0 && (
             <div className="border-t p-4">
-              {/* Resumen */}
+              {/* Summary */}
               <div className="mb-4">
                 <div className="flex justify-between mb-2">
-                  <span className="text-gray-600">Subtotal</span>
+                  <span className="text-muted-foreground">Subtotal</span>
                   <span className="font-medium">${getSubtotal().toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between font-bold text-lg">
@@ -185,7 +185,7 @@ export function SidebarCart() {
                 </div>
               </div>
 
-              {/* Botones de acción */}
+              {/* Action buttons */}
               <div className="space-y-2">
                 <Button onClick={handleWhatsAppCheckout} className="w-full bg-green-600 hover:bg-green-700">
                   <MessageCircle className="mr-2 h-4 w-4" />
@@ -195,7 +195,8 @@ export function SidebarCart() {
                 <Button
                   variant="outline"
                   onClick={handleClearCart}
-                  className="w-full text-red-500 border-red-500 hover:bg-red-50"
+                  className="w-full text-destructive border-destructive bg-background hover:bg-destructive/10 hover:text-black dark:hover:text-destructive
+                  "
                 >
                   Vaciar carrito
                 </Button>

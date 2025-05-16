@@ -93,26 +93,26 @@ export default function CategoriesTab() {
         <>
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-xl font-semibold">Lista de Categorías</h2>
-            <Button onClick={handleAddNew} className="bg-orange-500 hover:bg-orange-600">
+            <Button onClick={handleAddNew} className="bg-primary hover:bg-primary/80">
               <PlusCircle className="h-4 w-4 mr-2" />
               Nueva Categoría
             </Button>
           </div>
 
           {categories.length === 0 ? (
-            <div className="text-center py-8 text-gray-500">No hay categorías. ¡Agrega una nueva!</div>
+            <div className="text-center py-8 text-muted">No hay categorías. ¡Agrega una nueva!</div>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full border-collapse">
                 <thead>
-                  <tr className="bg-gray-100">
+                  <tr className="bg-muted">
                     <th className="text-left p-3">Nombre</th>
                     <th className="text-right p-3">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
                   {categories.map((category) => (
-                    <tr key={category.id} className="border-b hover:bg-gray-50">
+                    <tr key={category.id} className="border-b hover:bg-muted">
                       <td className="p-3">{category.name}</td>
                       <td className="p-3 text-right">
                         <Button
@@ -127,7 +127,7 @@ export default function CategoriesTab() {
                           variant="ghost"
                           size="sm"
                           onClick={() => handleDelete(category.id)}
-                          className="text-red-500 hover:text-red-700"
+                          className="text-destructive hover:text-destructive/80"
                         >
                           <Trash2 className="h-4 w-4" />
                         </Button>
@@ -165,7 +165,7 @@ export default function CategoriesTab() {
             </div>
 
             <div className="mt-6 flex justify-end">
-              <Button onClick={handleSave} className="bg-orange-500 hover:bg-orange-600">
+              <Button onClick={handleSave} className="bg-primary hover:bg-primary/80">
                 <Save className="h-4 w-4 mr-2" />
                 Guardar Categoría
               </Button>

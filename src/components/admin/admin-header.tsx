@@ -14,7 +14,7 @@ export default function AdminHeader() {
           </Button>
         </Link>
       </div>
-      <p className="text-gray-600">Gestiona tus productos, categorías y promociones</p>
+      <p className="text-muted-foreground">Gestiona tus productos, categorías y promociones</p>
     </div>
   )
 }

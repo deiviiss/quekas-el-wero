@@ -105,19 +105,19 @@ export default function ProductsTab() {
         <>
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-xl font-semibold">Lista de Productos</h2>
-            <Button onClick={handleAddNew} className="bg-orange-500 hover:bg-orange-600">
+            <Button onClick={handleAddNew} className="bg-primary hover:bg-primary/80">
               <PlusCircle className="h-4 w-4 mr-2" />
               Nuevo Producto
             </Button>
           </div>
 
           {products.length === 0 ? (
-            <div className="text-center py-8 text-gray-500">No hay productos. ¡Agrega uno nuevo!</div>
+            <div className="text-center py-8 text-muted-foreground">No hay productos. ¡Agrega uno nuevo!</div>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full border-collapse">
                 <thead>
-                  <tr className="bg-gray-100">
+                  <tr className="bg-muted">
                     <th className="text-left p-3">Nombre</th>
                     <th className="text-left p-3">Categoría</th>
                     <th className="text-left p-3">Precio</th>
@@ -129,14 +129,14 @@ export default function ProductsTab() {
                   {products.map((product) => {
                     const category = categories.find((c) => c.id === product.categoryId)
                     return (
-                      <tr key={product.id} className="border-b hover:bg-gray-50">
+                      <tr key={product.id} className="border-b hover:bg-primary/10">
                         <td className="p-3">{product.name}</td>
                         <td className="p-3">{category?.name || "Sin categoría"}</td>
                         <td className="p-3">
                           {product.promotionPrice ? (
                             <div>
                               <span className="text-red-500 font-medium">${product.promotionPrice.toFixed(2)}</span>
-                              <span className="text-gray-500 line-through ml-2">${product.price.toFixed(2)}</span>
+                              <span className="text-muted-foreground line-through ml-2">${product.price.toFixed(2)}</span>
                             </div>
                           ) : (
                             <span>${product.price.toFixed(2)}</span>
@@ -144,7 +144,7 @@ export default function ProductsTab() {
                         </td>
                         <td className="p-3">
                           <span
-                            className={`px-2 py-1 rounded-full text-xs ${product.active ? "bg-green-100 text-green-800" : "bg-gray-100 text-gray-800"}`}
+                            className={`px-2 py-1 rounded-full text-xs ${product.active ? "bg-green-100 text-green-800" : "bg-muted text-gray-800"}`}
                           >
                             {product.active ? "Activo" : "Inactivo"}
                           </span>
@@ -284,7 +284,7 @@ export default function ProductsTab() {
           </div>
 
           <div className="mt-6 flex justify-end">
-            <Button onClick={handleSave} className="bg-orange-500 hover:bg-orange-600">
+            <Button onClick={handleSave} className="bg-primary hover:bg-primary/80">
               <Save className="h-4 w-4 mr-2" />
               Guardar Producto
             </Button>

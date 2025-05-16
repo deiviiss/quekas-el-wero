@@ -135,19 +135,19 @@ export default function PromotionsTab() {
         <>
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-xl font-semibold">Lista de Promociones</h2>
-            <Button onClick={handleAddNew} className="bg-orange-500 hover:bg-orange-600">
+            <Button onClick={handleAddNew} className="bg-primary hover:bg-primary/80">
               <PlusCircle className="h-4 w-4 mr-2" />
               Nueva Promoción
             </Button>
           </div>
 
           {promotions.length === 0 ? (
-            <div className="text-center py-8 text-gray-500">No hay promociones. ¡Agrega una nueva!</div>
+            <div className="text-center py-8 text-muted-foreground">No hay promociones. ¡Agrega una nueva!</div>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full border-collapse">
                 <thead>
-                  <tr className="bg-gray-100">
+                  <tr className="bg-muted">
                     <th className="text-left p-3">Nombre</th>
                     <th className="text-left p-3">Descuento</th>
                     <th className="text-left p-3">Fechas</th>
@@ -174,7 +174,7 @@ export default function PromotionsTab() {
                         </td>
                         <td className="p-3">
                           <span
-                            className={`px-2 py-1 rounded-full text-xs ${isActive ? "bg-green-100 text-green-800" : "bg-gray-100 text-gray-800"}`}
+                            className={`px-2 py-1 rounded-full text-xs ${isActive ? "bg-green-100 text-green-800" : "bg-muted text-gray-800"}`}
                           >
                             {isActive ? "Activa" : "Inactiva"}
                           </span>
@@ -290,7 +290,7 @@ export default function PromotionsTab() {
                     value={currentPromotion?.startDate || ""}
                     onChange={(e) => setCurrentPromotion({ ...currentPromotion!, startDate: e.target.value })}
                   />
-                  <Calendar className="absolute right-3 top-2.5 h-4 w-4 text-gray-500" />
+                  <Calendar className="absolute right-3 top-2.5 h-4 w-4 text-muted-foreground" />
                 </div>
               </div>
 
@@ -303,7 +303,7 @@ export default function PromotionsTab() {
                     value={currentPromotion?.endDate || ""}
                     onChange={(e) => setCurrentPromotion({ ...currentPromotion!, endDate: e.target.value })}
                   />
-                  <Calendar className="absolute right-3 top-2.5 h-4 w-4 text-gray-500" />
+                  <Calendar className="absolute right-3 top-2.5 h-4 w-4 text-muted-foreground" />
                 </div>
               </div>
 
@@ -313,7 +313,7 @@ export default function PromotionsTab() {
                   id="active"
                   checked={currentPromotion?.active || false}
                   onChange={(e) => setCurrentPromotion({ ...currentPromotion!, active: e.target.checked })}
-                  className="h-4 w-4 rounded border-gray-300 text-orange-600 focus:ring-orange-500"
+                  className="h-4 w-4 rounded border-gray-300 text-primary/80 focus:ring-primary"
                 />
                 <Label htmlFor="active">Promoción Activa</Label>
               </div>
@@ -324,7 +324,7 @@ export default function PromotionsTab() {
             <Label>Selecciona los productos para esta promoción *</Label>
             <div className="mt-2 border rounded-md p-4 max-h-60 overflow-y-auto">
               {products.length === 0 ? (
-                <p className="text-gray-500">No hay productos disponibles</p>
+                <p className="text-muted-foreground">No hay productos disponibles</p>
               ) : (
                 <div className="space-y-2">
                   {products.map((product) => (
@@ -334,7 +334,7 @@ export default function PromotionsTab() {
                         id={`product-${product.id}`}
                         checked={currentPromotion?.productIds.includes(product.id) || false}
                         onChange={() => handleProductSelection(product.id)}
-                        className="h-4 w-4 rounded border-gray-300 text-orange-600 focus:ring-orange-500"
+                        className="h-4 w-4 rounded border-gray-300 text-primary/80 focus:ring-primary"
                       />
                       <label htmlFor={`product-${product.id}`} className="ml-2 block text-sm">
                         {product.name} - ${product.price.toFixed(2)}
@@ -347,7 +347,7 @@ export default function PromotionsTab() {
           </div>
 
           <div className="mt-6 flex justify-end">
-            <Button onClick={handleSave} className="bg-orange-500 hover:bg-orange-600">
+            <Button onClick={handleSave} className="bg-primary hover:bg-primary/80">
               <Save className="h-4 w-4 mr-2" />
               Guardar Promoción
             </Button>

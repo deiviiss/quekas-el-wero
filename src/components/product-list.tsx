@@ -30,7 +30,7 @@ export function ProductList({ products, categories }: ProductListProps) {
         return (
           <section key={category.id} id={`category-${category.id}`} className="scroll-mt-20">
             <motion.h2
-              className="text-2xl font-bold mb-6 pb-2 border-b-2 border-orange-500"
+              className="text-2xl font-bold mb-6 pb-2 border-b-2 border-primary"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}

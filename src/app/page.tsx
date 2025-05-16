@@ -18,9 +18,9 @@ export default async function Home() {
         <SidebarCategories categories={categories} />
       </div>
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-orange-500 to-amber-500 text-white py-12">
+        <section className="bg-primary-gradient py-12">
           <div className="container mx-auto px-4">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Nuestro Menú</h1>
             <p className="text-xl mb-6">Deliciosos productos a un solo clic de distancia</p>
@@ -28,7 +28,7 @@ export default async function Home() {
         </section>
 
         {/* Promociones destacadas */}
-        <section className="py-6 bg-orange-50">
+        <section className="py-6 bg-muted">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl font-bold mb-6 text-center">Promociones Destacadas</h2>
             <PromotionBanner promotions={promotions} products={products} />

@@ -2,46 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base typography */
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Custom utility */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+  .bg-primary-gradient {
+    /* @apply bg-gradient-to-r from-orange-500 to-amber-500 text-white */
+    background-image: linear-gradient(to right, hsl(var(--chart-1)), hsl(var(--chart-2)));
+    color: white;
+  }
+
+  .dark .bg-primary-gradient {
+    /* @apply from-orange-700 to-amber-600; */
+    background-image: linear-gradient(to right, hsl(var(--chart-1)), hsl(var(--chart-2)));
+    color: white;
+  }
 }
 
+/* Base variables and themes */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    /* General UI colors */
+    --background: 36 100% 97% --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
+
+    /* Primary (orange/amber vibes) */
+    --primary: 24 94% 53%;
+    /* orange-500 */
+    --primary-foreground: 0 0% 100%;
+    /* amber-500 */
+    --secondary: 42 94% 50%;
+    --secondary-foreground: 0 0% 15%;
+
+    /* Support colors */
+    /* warm background */
+    --muted: 36 100% 97%;
+    --muted-foreground: 24 25% 45%;
+    /* green like bg-green-600 */
+    --accent: 173 58% 39%;
+    --accent-foreground: 0 0% 100%;
+    /* red-500 */
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders, inputs and rings */
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --ring: 24 94% 53%;
+
+    /* Chart colors */
+    /* orange-500 */
+    --chart-1: 24 94% 53%;
+    /* amber-500 */
+    --chart-2: 42 94% 50%;
+    /* green-600 */
+    --chart-3: 173 58% 39%;
+    /* gray-800 */
+    --chart-4: 197 37% 24%;
+    /* pink/red */
+    --chart-5: 340 75% 55%;
+
+    /* Global radius */
     --radius: 0.5rem;
+
+    /* Custom sidebar */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
+    /* main orange */
+    --sidebar-primary: 24 94% 53%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
@@ -56,7 +94,9 @@ body {
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
+
+    /* lighter orange in dark */
+    --primary: 24 100% 60%;
     --primary-foreground: 0 0% 9%;
     --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
@@ -66,14 +106,18 @@ body {
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
+
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
+
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
+    /* pink touch for variety */
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -85,6 +129,7 @@ body {
   }
 }
 
+/* Base styles applied globally */
 @layer base {
   * {
     @apply border-border;

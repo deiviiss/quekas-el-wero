@@ -6,6 +6,7 @@ import { Footer } from "@/components/footer"
 import { Toaster } from "sonner"
 import { Providers } from "@/components/providers/Providers"
 import "./globals.css"
+import { ToogleDarkMode } from "@/components/dark-mode/toogle-dark-mode/ToogleDarkMode"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -29,6 +30,8 @@ export default function RootLayout({
           {children}
           <Footer />
           <Toaster position="bottom-right" richColors />
+          {/* dark mode button */}
+          <ToogleDarkMode />
         </Providers>
       </body>
     </html>
