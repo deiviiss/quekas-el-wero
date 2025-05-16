@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import type { Category } from "@/lib/types"
-import { getCategories, saveCategory, deleteCategory } from "@/lib/data"
+import { saveCategory, deleteCategory } from "@/lib/data"
 import { PlusCircle, Pencil, Trash2, Save, X } from "lucide-react"
+import { getCategories } from "@/actions/get-categories"
 
 export default function CategoriesTab() {
   const [categories, setCategories] = useState<Category[]>([])

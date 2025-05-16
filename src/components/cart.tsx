@@ -28,13 +28,15 @@ export default function Cart() {
     })
 
     message += `\n*Total:* $${subtotal.toFixed(2)}\n\n`
-    message += "¡Gracias por tu pedido! Por favor, confirma los detalles de entrega."
+    // message += "¡Gracias por tu pedido! Por favor, confirma los detalles de entrega."
 
     // Codificar el mensaje para URL
     const encodedMessage = encodeURIComponent(message)
 
     // Abrir WhatsApp con el mensaje
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank")
+
+    clearCart
   }
 
   return (

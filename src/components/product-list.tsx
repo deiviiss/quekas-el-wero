@@ -19,7 +19,7 @@ const staggerContainer = {
   },
 }
 
-export default function ProductList({ products, categories }: ProductListProps) {
+export function ProductList({ products, categories }: ProductListProps) {
   return (
     <div className="space-y-12">
       {categories.map((category) => {

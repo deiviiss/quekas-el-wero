@@ -1,13 +1,11 @@
-import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import "./globals.css"
-import Footer from "@/components/footer"
+import { Navbar } from "@/components/navbar"
+import { SidebarCart } from "@/components/sidebar-cart"
+import { Footer } from "@/components/footer"
 import { Toaster } from "sonner"
-import SidebarCart from "@/components/sidebar-cart"
-import Navbar from "@/components/ui/navbar"
-import SidebarCategories from "@/components/sidebar-categories"
-import { getCategories } from "@/lib/data"
+import { Providers } from "@/components/providers/Providers"
+import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -25,13 +23,13 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <body className={inter.className}>
-
-        <Navbar />
-        <SidebarCart />
-        {children}
-        <Footer />
-        <Toaster position="bottom-right" richColors />
-
+        <Providers>
+          <Navbar />
+          <SidebarCart />
+          {children}
+          <Footer />
+          <Toaster position="bottom-right" richColors />
+        </Providers>
       </body>
     </html>
   )

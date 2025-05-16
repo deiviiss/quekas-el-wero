@@ -8,8 +8,10 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Switch } from "@/components/ui/switch"
 import type { Product, Category } from "@/lib/types"
-import { getProducts, getCategories, saveProduct, deleteProduct } from "@/lib/data"
+import { saveProduct, deleteProduct } from "@/lib/data"
 import { PlusCircle, Pencil, Trash2, Save, X } from "lucide-react"
+import { getProducts } from "@/actions/get-products"
+import { getCategories } from "@/actions/get-categories"
 
 export default function ProductsTab() {
   const [products, setProducts] = useState<Product[]>([])

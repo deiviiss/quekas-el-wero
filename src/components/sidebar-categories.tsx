@@ -10,7 +10,7 @@ interface SidebarCategoriesProps {
   categories: Category[]
 }
 
-export default function SidebarCategories({ categories }: SidebarCategoriesProps) {
+export function SidebarCategories({ categories }: SidebarCategoriesProps) {
   const { isCategoriesOpen, closeCategories } = useUiStore()
 
   const scrollToCategory = (categoryId: string) => {

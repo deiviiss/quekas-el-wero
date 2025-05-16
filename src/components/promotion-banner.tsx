@@ -7,15 +7,17 @@ import { Button } from "@/components/ui/button"
 import type { Product, Promotion } from "@/lib/types"
 import { ShoppingCart, Tag } from "lucide-react"
 import { useCartStore } from "@/store"
+import { toast } from "sonner"
 
 interface PromotionBannerProps {
   promotions: Promotion[]
   products: Product[]
 }
 
-export default function PromotionBanner({ promotions, products }: PromotionBannerProps) {
+export function PromotionBanner({ promotions, products }: PromotionBannerProps) {
   const { addToCart } = useCartStore()
   const [activePromotions, setActivePromotions] = useState<Promotion[]>([])
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     // Filtrar promociones activas y dentro del rango de fechas
@@ -38,6 +40,10 @@ export default function PromotionBanner({ promotions, products }: PromotionBanne
       const product = products.find((p) => p.id === productId)
       if (product) {
         addToCart(product)
+        setIsLoading(false)
+        toast.success(`${product.name} agregado al carrito`, {
+          position: "bottom-right",
+        })
       }
     })
   }
@@ -99,6 +105,7 @@ export default function PromotionBanner({ promotions, products }: PromotionBanne
               </div>
               <Button
                 onClick={() => handleAddPromoToCart(promotion)}
+                disabled={isLoading}
                 className="w-full bg-orange-500 hover:bg-orange-600 transition-colors"
               >
                 <ShoppingCart className="mr-2 h-4 w-4" />

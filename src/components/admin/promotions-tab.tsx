@@ -6,8 +6,10 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import type { Promotion, Product } from "@/lib/types"
-import { getPromotions, getProducts, savePromotion, deletePromotion, applyPromotion } from "@/lib/data"
+import { savePromotion, deletePromotion, applyPromotion } from "@/lib/data"
 import { PlusCircle, Pencil, Trash2, Save, X, Calendar } from "lucide-react"
+import { getPromotions } from "@/actions/get-promotions"
+import { getProducts } from "@/actions/get-products"
 
 export default function PromotionsTab() {
   const [promotions, setPromotions] = useState<Promotion[]>([])

@@ -6,8 +6,9 @@ import { ShoppingCart, List } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useUiStore, useCartStore } from "@/store"
 import { Badge } from "@/components/ui/badge"
+import { ToogleDarkMode } from "@/components/dark-mode/toogle-dark-mode/ToogleDarkMode"
 
-export default function Navbar() {
+export function Navbar() {
   const { openSideCart, toggleCategories } = useUiStore()
   const totalItems = useCartStore((state) => state.getTotalItems())
 
@@ -27,15 +28,15 @@ export default function Navbar() {
             </Link>
           </motion.div>
 
-          {/* Botones de navegación */}
+          {/* Navigations buttons */}
           <div className="flex items-center space-x-3">
-            {/* Botón de categorías */}
+            {/* Category button */}
             <Button variant="ghost" size="sm" onClick={toggleCategories} className="flex items-center md:hidden">
               <List className="h-5 w-5 mr-1" />
               <span className="hidden sm:inline">Categorías</span>
             </Button>
 
-            {/* Botón de carrito */}
+            {/* Cart button */}
             <Button variant="ghost" size="sm" onClick={openSideCart} className="flex items-center relative">
               <ShoppingCart className="h-5 w-5 mr-1" />
               <span className="hidden sm:inline">Carrito</span>
@@ -45,6 +46,9 @@ export default function Navbar() {
                 </Badge>
               )}
             </Button>
+
+            {/* dark mode button */}
+            <ToogleDarkMode />
           </div>
         </div>
       </div>

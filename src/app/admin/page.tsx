@@ -1,7 +1,7 @@
 import { Suspense } from "react"
 import AdminTabs from "@/components/admin/admin-tabs"
 import AdminHeader from "@/components/admin/admin-header"
-import Loading from "../loading"
+import Loading from "@/app/loading"
 
 export default function AdminPage() {
   return (

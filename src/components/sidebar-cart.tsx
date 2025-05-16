@@ -9,7 +9,7 @@ import { toast } from "sonner"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 
-export default function SidebarCart() {
+export function SidebarCart() {
   const { isSideCartOpen, closeSideCart } = useUiStore()
   const { cart, removeFromCart, updateQuantity, clearCart, getSubtotal } = useCartStore()
 
