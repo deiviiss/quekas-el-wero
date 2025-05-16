@@ -37,7 +37,7 @@ export function SidebarCart() {
     })
 
     message += `\n*Total:* $${getSubtotal().toFixed(2)}\n\n`
-    message += "¡Gracias por tu pedido! Por favor, confirma los detalles de entrega."
+    message += "¡Gracias por tu pedido! Por favor, presiona el botón de enviar mensaje para continuar."
 
     // Encode message for URL
     const encodedMessage = encodeURIComponent(message)
