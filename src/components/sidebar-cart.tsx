@@ -26,7 +26,7 @@ export function SidebarCart() {
   }, [closeSideCart])
 
   const handleWhatsAppCheckout = () => {
-    const phoneNumber = "5219811250049" // Business phone number
+    const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER // Business phone number
 
     let message = "🛒 *Nuevo Pedido*\n\n"
 

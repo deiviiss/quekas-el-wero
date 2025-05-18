@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { ShoppingCart, List } from "lucide-react"
+import { ShoppingCart, List, Sandwich } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useUiStore, useCartStore } from "@/store"
 import { Badge } from "@/components/ui/badge"
@@ -20,14 +20,15 @@ export function Navbar() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex items-center"
+            className="flex items-center gap-1"
           >
+            <Sandwich className="w-6 h-6 text-primary" />
             <Link href="/" className="text-xl font-bold text-primary">
-              Menú Digital
+              Burger Dev
             </Link>
           </motion.div>
 
-          {/* Navigations buttons */}
+          {/* Navigation buttons */}
           <div className="flex items-center space-x-3">
             {/* Category button */}
             <Button variant="ghost" size="sm" onClick={toggleCategories} className="flex items-center md:hidden">
