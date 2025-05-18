@@ -7,8 +7,8 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Menú Digital</h3>
-            <p className="text-gray-300">La forma más fácil de mostrar tus productos y recibir pedidos por WhatsApp.</p>
+            <h3 className="text-xl font-bold mb-4">Burger Dev</h3>
+            <p className="text-gray-300">Lo bueno se comparte... y se pide por WhatsApp. </p>
           </div>
 
           <div>
@@ -71,14 +71,14 @@ export function Footer() {
             </div>
             <div className="mt-4">
               <p className="text-gray-300">Contáctanos:</p>
-              <p className="text-gray-300">info@menudigital.com</p>
+              <p className="text-gray-300">info@burgerdev.com</p>
               <p className="text-gray-300">+52 981 125 0049</p>
             </div>
           </div>
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-gray-300">
-          <p>© {new Date().getFullYear()} Menú Digital. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} Burger Dev. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>
