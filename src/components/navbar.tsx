@@ -6,6 +6,7 @@ import { ShoppingCart, List, Sandwich } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useUiStore, useCartStore } from "@/store"
 import { Badge } from "@/components/ui/badge"
+import Image from "next/image"
 
 export function Navbar() {
   const { openSideCart, toggleCategories } = useUiStore()
@@ -13,20 +14,19 @@ export function Navbar() {
 
   return (
     <header className="bg-card shadow-md sticky top-0 z-40">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-2">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center gap-1"
-          >
-            <Sandwich className="w-6 h-6 text-primary" />
-            <Link href="/" className="text-xl font-bold text-primary">
-              Burger Dev
-            </Link>
-          </motion.div>
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/images/logo.webp"
+              alt="Quekas el Wero Logo"
+              width={80}
+              height={80}
+              className="object-contain"
+              priority
+            />
+          </Link>
 
           {/* Navigation buttons */}
           <div className="flex items-center space-x-3">

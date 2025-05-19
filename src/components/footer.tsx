@@ -1,13 +1,15 @@
 import Link from "next/link"
-import { Facebook, Instagram, Twitter, MessageCircle } from "lucide-react"
+import { Facebook } from "lucide-react"
+import { FaWhatsapp } from "react-icons/fa";
 
 export function Footer() {
+  const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER // Business phone number
   return (
     <footer className="bg-gray-800 dark:bg-gray-950 text-white py-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Burger Dev</h3>
+            <h3 className="text-xl font-bold mb-4">Quekas El Wero</h3>
             <p className="text-gray-300">Lo bueno se comparte... y se pide por WhatsApp. </p>
           </div>
 
@@ -17,11 +19,6 @@ export function Footer() {
               <li>
                 <Link href="/" className="text-gray-300 hover:text-card transition-colors">
                   Inicio
-                </Link>
-              </li>
-              <li>
-                <Link href="/" className="text-gray-300 hover:text-white transition-colors">
-                  Administración
                 </Link>
               </li>
               <li>
@@ -40,45 +37,33 @@ export function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Síguenos</h3>
             <div className="flex space-x-4">
-              <a
-                href="#"
+              <Link
+                href="https://www.facebook.com/profile.php?id=100076219748466&sk=photos_by"
+                target="_blank"
                 className="bg-gray-700 hover:bg-blue-600 p-2 rounded-full transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="bg-gray-700 hover:bg-pink-600 p-2 rounded-full transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="bg-gray-700 hover:bg-blue-400 p-2 rounded-full transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href={`https://wa.me/${phoneNumber}`}
+                target="_blank"
                 className="bg-gray-700 hover:bg-green-600 p-2 rounded-full transition-colors"
                 aria-label="WhatsApp"
               >
-                <MessageCircle className="h-5 w-5" />
-              </a>
+                <FaWhatsapp className="h-5 w-5" />
+              </Link>
             </div>
             <div className="mt-4">
               <p className="text-gray-300">Contáctanos:</p>
-              <p className="text-gray-300">info@burgerdev.com</p>
-              <p className="text-gray-300">+52 981 125 0049</p>
+              <p className="text-gray-300">jorgesnz97@gmail.com</p>
+              <p className="text-gray-300">981 171 8512</p>
             </div>
           </div>
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-gray-300">
-          <p>© {new Date().getFullYear()} Burger Dev. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} Quekas El Wero. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

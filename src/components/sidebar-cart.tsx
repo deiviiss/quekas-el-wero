@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { toast } from "sonner"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
+import { FaWhatsapp } from "react-icons/fa"
 
 export function SidebarCart() {
   const { isSideCartOpen, closeSideCart } = useUiStore()
@@ -189,7 +190,7 @@ export function SidebarCart() {
               {/* Action buttons */}
               <div className="space-y-2">
                 <Button onClick={handleWhatsAppCheckout} className="w-full bg-green-600 hover:bg-green-700">
-                  <MessageCircle className="mr-2 h-4 w-4" />
+                  <FaWhatsapp className="mr-2 h-4 w-4" />
                   Pedir por WhatsApp
                 </Button>
 

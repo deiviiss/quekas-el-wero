@@ -5,44 +5,43 @@ import { Promotion } from "@/lib/types"
 const initialPromotions: Promotion[] = [
   {
     id: "1",
-    name: "Combo Hamburguesa + Papas + Refresco",
-    description: "Hamburguesa sencilla con papas fritas chicas y refresco",
-    discountPercentage: 15,
+    name: "5 Quesabirrias + ½ litro de consomé",
+    description: "Combo ideal para compartir: 5 quesabirrias con medio litro de consomé",
+    discountPercentage: 7, // $135 normal vs $125 aprox.
     startDate: new Date().toISOString().split("T")[0],
     endDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
-    productIds: ["1", "11", "17"],
+    productIds: ["3000", "2001"], // quesabirria, ½ orden de carne con consomé
     active: true,
-    discountCode: "COMBO1",
-    image: "https://media.istockphoto.com/id/533712416/es/foto/hamburguesa-con-queso-con-bebida-de-cola-y-patatas-fritas-de-luz-rojo.jpg?s=612x612&w=0&k=20&c=7wm2IEMh5KPKkyTPrl-LbdJZ3ufgC1GCJAhP0zinPVw=",
+    discountCode: "COMBO5Q",
+    image: "https://res.cloudinary.com/dhyds3mnm/image/upload/v1747625080/5_quesabirrias_mas_litro_de_consome_eeynfj.jpg",
   },
   {
     id: "2",
-    name: "2 Hot Dogs por $50",
-    description: "Lleva 2 hot dogs sencillos por solo $50",
-    discountPercentage: 20,
+    name: "10 Quesabirrias + 1 litro de consomé",
+    description: "Perfecto para reuniones o una buena comilona",
+    discountPercentage: 25, // aprox. $370 normal vs $300 promo
     startDate: new Date().toISOString().split("T")[0],
-    endDate: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
-    productIds: ["5"],
+    endDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
+    productIds: ["3000", "2002"],
     active: true,
-    discountCode: "HOTDOG2X1",
-    image: "https://media.istockphoto.com/id/1349560418/es/foto/dos-perritos-calientes-con-ketchup-y-mostaza.jpg?s=612x612&w=0&k=20&c=1jgMNA6Kr6X2q6qmCRfURsnhaGYQlMSZ7g9T43ZCWAs=",
+    discountCode: "COMBO10Q",
+    image: "https://res.cloudinary.com/dhyds3mnm/image/upload/v1747625095/498164685_678601344912396_4203856589691907909_n_amkn2o.jpg",
   },
   {
     id: "3",
-    name: "Refresco gratis en pedidos mayores a $100",
-    description: "Obtén un refresco gratis en compras mayores a $100",
-    discountPercentage: 100,
+    name: "12 Quesabirrias + 1 litro de consomé",
+    description: "Ahorra más y come más: 12 quesabirrias y un litro de consomé",
+    discountPercentage: 27,
     startDate: new Date().toISOString().split("T")[0],
-    endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
-    productIds: ["17"],
+    endDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
+    productIds: ["3000", "2002"],
     active: true,
-    discountCode: "REFRESCOGRATIS",
-    image: "https://media.istockphoto.com/id/2162110995/es/foto/soft-drinks.jpg?s=612x612&w=0&k=20&c=HdRyjTS-8Yw0RGAe540GeUbg0XysD6lEIhuSMZlhemY=",
-  },
+    discountCode: "COMBO12Q",
+    image: "https://res.cloudinary.com/dhyds3mnm/image/upload/v1747625091/12_quesabirrias_mas_litro_de_consome_n9cfwf.jpg",
+  }
 ]
 
 export async function getPromotions(): Promise<Promotion[]> {
-
   try {
     return initialPromotions
   } catch (error) {
