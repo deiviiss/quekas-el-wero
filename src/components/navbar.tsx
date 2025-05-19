@@ -14,7 +14,7 @@ export function Navbar() {
 
   return (
     <header className="bg-card shadow-md sticky top-0 z-40">
-      <div className="container mx-auto px-2">
+      <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
@@ -29,7 +29,7 @@ export function Navbar() {
           </Link>
 
           {/* Navigation buttons */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center">
             {/* Category button */}
             <Button variant="ghost" size="sm" onClick={toggleCategories} className="flex items-center md:hidden">
               <List className="h-5 w-5 mr-1" />

@@ -11,11 +11,10 @@ import { ToogleDarkMode } from "@/components/dark-mode/toogle-dark-mode/ToogleDa
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Menú Digital",
-  description: "Sistema de menú digital con integración de WhatsApp",
-  generator: 'v0.dev'
+  title: "Quekas El Wero | Menú Digital",
+  description: "Explora nuestro menú digital y haz tu pedido por WhatsApp. Birrias, trancas, promociones y más con el sabor de siempre.",
+  generator: "Quekas El Wero · Menú digital"
 }
-
 export default function RootLayout({
   children,
 }: {
