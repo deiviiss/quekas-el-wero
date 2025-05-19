@@ -64,22 +64,12 @@ const initialProducts: Product[] = [
     promotionPrice: null,
   },
   {
-    id: "3002",
-    name: "Tortilla a mano",
-    price: 30,
-    categoryId: "2",
-    description: "Tortillas gruesas hechas a mano, recién salidas del comal.",
-    image: "",
-    active: true,
-    promotionPrice: null,
-  },
-  {
     id: "3000",
     name: "Quesabirria",
     price: 27,
     categoryId: "3",
     description: "Tortilla dorada con queso derretido y birria jugosa.",
-    image: "",
+    image: "https://res.cloudinary.com/dhyds3mnm/image/upload/v1747698891/quesa-birria_bpfk7n.jpg",
     active: true,
     promotionPrice: null,
   },
@@ -89,7 +79,7 @@ const initialProducts: Product[] = [
     price: 30,
     categoryId: "3",
     description: "Quesabirria con extra de queso para los más queseros.",
-    image: "",
+    image: "https://res.cloudinary.com/dhyds3mnm/image/upload/v1747698890/quesa-birria-extra-queso_i6qw0m.jpg",
     active: true,
     promotionPrice: null,
   },
@@ -116,8 +106,6 @@ const initialProducts: Product[] = [
 ];
 
 export async function getProducts(): Promise<Product[]> {
-  // if (typeof window === "undefined") return initialProducts
-
   try {
     return initialProducts
   } catch (error) {
