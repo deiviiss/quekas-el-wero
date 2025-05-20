@@ -43,7 +43,7 @@ const initialPromotions: Promotion[] = [
     promoPrice: 300,
     isActive: true,
     discountCode: "COMBO12Q",
-    image: "https://res.cloudinary.com/dhyds3mnm/image/upload/v1747625091/12_quesabirrias_mas_litro_de_consome_n9cfwf.jpg",
+    image: "",
   },
   {
     id: "4",
@@ -57,7 +57,7 @@ const initialPromotions: Promotion[] = [
     promoPrice: 450,
     isActive: true,
     discountCode: "COMBO18Q",
-    image: "https://res.cloudinary.com/dhyds3mnm/image/upload/v1747625087/18_quesabirrias_mas_litro_de_consome_zxizyt.jpg",
+    image: "",
   },
   {
     id: "5",
@@ -71,7 +71,7 @@ const initialPromotions: Promotion[] = [
     promoPrice: 600,
     isActive: true,
     discountCode: "KGBIRRIA",
-    image: "https://res.cloudinary.com/dhyds3mnm/image/upload/v1747625082/kilo_de_birria_mas_2_litros_de_consome_rdxvhw.jpg",
+    image: "",
   },
   {
     id: "6",
@@ -85,11 +85,9 @@ const initialPromotions: Promotion[] = [
     promoPrice: 75,
     isActive: true,
     discountCode: "TAMAIZ3X75",
-    image: "https://res.cloudinary.com/dhyds3mnm/image/upload/v1747625085/martes_de_quesabirria_tamaiz_qkxkav.jpg",
+    image: "",
   },
 ];
-
-
 
 export async function getPromotions(): Promise<Promotion[]> {
   try {
