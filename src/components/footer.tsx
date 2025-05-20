@@ -22,14 +22,14 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                <Link href="/conditions" className="text-gray-300 hover:text-white transition-colors">
                   Términos y Condiciones
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                <Link href="/privacy" className="text-gray-300 hover:text-white transition-colors">
                   Política de Privacidad
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
