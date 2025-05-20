@@ -15,14 +15,14 @@ export function Navbar() {
   return (
     <header className="bg-card shadow-md sticky top-0 z-40">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Image
               src="/images/logo.webp"
               alt="Quekas el Wero Logo"
-              width={80}
-              height={80}
+              width={90}
+              height={90}
               className="object-contain"
               priority
             />

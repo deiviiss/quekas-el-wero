@@ -6,7 +6,8 @@ const initialCategories: Category[] = [
   { "id": "1", "name": "Tacos" },
   { "id": "2", "name": "Extra" },
   { "id": "3", "name": "Especialidad de la casa" },
-  { "id": "4", "name": "Trancas" }
+  { "id": "4", "name": "Trancas" },
+  { "id": "5", "name": "Bebidas" }
 ]
 
 export async function getCategories(): Promise<Category[]> {

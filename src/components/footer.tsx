@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook } from "lucide-react"
+import { Facebook, Instagram } from "lucide-react"
 import { FaWhatsapp } from "react-icons/fa";
 
 export function Footer() {
@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-xl font-bold mb-4">Quekas El Wero</h3>
-            <p className="text-gray-300">Lo bueno se comparte... y se pide por WhatsApp. </p>
+            <p className="text-gray-300">Las únicas y originales Quesabirrias</p>
           </div>
 
           <div>
@@ -44,6 +44,13 @@ export function Footer() {
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
+              </Link>
+              <Link
+                href="#"
+                className="bg-gray-700 hover:bg-pink-600 p-2 rounded-full transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-5 w-5" />
               </Link>
               <Link
                 href={`https://wa.me/${phoneNumber}`}

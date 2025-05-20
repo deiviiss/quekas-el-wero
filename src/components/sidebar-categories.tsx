@@ -23,16 +23,14 @@ export function SidebarCategories({ categories }: SidebarCategoriesProps) {
 
   return (
     <>
-      {/* Overlay de fondo (solo en mobile) */}
+      {/* Background overlay (mobile only) */}
       <AnimatePresence>
         {
           isCategoriesOpen && (
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }
-              }
-              exit={{ opacity: 0 }
-              }
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
               onClick={closeCategories}
@@ -40,7 +38,7 @@ export function SidebarCategories({ categories }: SidebarCategoriesProps) {
           )}
       </AnimatePresence>
 
-      {/* Sidebar de categorías */}
+      {/* Categories Sidebar */}
       <div
         className={
           cn(
@@ -50,20 +48,20 @@ export function SidebarCategories({ categories }: SidebarCategoriesProps) {
         }
       >
         <div className="flex flex-col h-full md:h-auto" >
-          {/* Encabezado (solo en mobile) */}
-          < div className="flex justify-between items-center p-4 border-b md:hidden" >
-            <h2 className="text-lg font-semibold" > Categorías </h2>
-            < button
+          {/* Header (mobile only) */}
+          <div className="flex justify-between items-center p-4 border-b md:hidden" >
+            <h2 className="text-lg font-semibold" > Categories </h2>
+            <button
               onClick={closeCategories}
               className="p-1 rounded-full hover:bg-muted transition-colors md:hidden"
-              aria-label="Cerrar categorías"
+              aria-label="Close categories"
             >
               <X className="h-6 w-6" />
             </button>
           </div>
 
-          {/* Lista de categorías */}
-          <div className="overflow-y-auto" >
+          {/* Categories list */}
+          <div className="overflow-y-auto overflow-x-hidden" >
             <motion.ul
               className="divide-y"
               initial={{ opacity: 0 }}
@@ -90,6 +88,9 @@ export function SidebarCategories({ categories }: SidebarCategoriesProps) {
             </motion.ul>
           </div>
         </div>
+        <p className="absolute bottom-0 md:-bottom-10 px-4 py-2 text-xs text-muted-foreground">
+          * Consomé de Cortesía en Sucursal
+        </p>
       </div >
     </>
   )
