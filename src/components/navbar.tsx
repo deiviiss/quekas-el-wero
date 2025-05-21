@@ -1,8 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { motion } from "framer-motion"
-import { ShoppingCart, List, Sandwich } from "lucide-react"
+import { ShoppingCart, List } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useUiStore, useCartStore } from "@/store"
 import { Badge } from "@/components/ui/badge"
@@ -32,13 +31,13 @@ export function Navbar() {
           <div className="flex items-center">
             {/* Category button */}
             <Button variant="ghost" size="sm" onClick={toggleCategories} className="flex items-center md:hidden">
-              <List className="h-5 w-5 mr-1" />
+              <List className="h-6 w-6 mr-1" />
               <span className="hidden sm:inline">Categorías</span>
             </Button>
 
             {/* Cart button */}
             <Button variant="ghost" size="sm" onClick={openSideCart} className="flex items-center relative">
-              <ShoppingCart className="h-5 w-5 mr-1" />
+              <ShoppingCart className="h-6 w-6 mr-1" />
               <span className="hidden sm:inline">Carrito</span>
               {totalItems > 0 && (
                 <Badge className="absolute -top-2 -right-2 bg-primary text-card px-1.5 py-0.5 text-xs rounded-full">

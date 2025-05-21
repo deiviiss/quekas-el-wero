@@ -35,25 +35,26 @@ export function PromotionBanner({ promotions, products }: PromotionBannerProps) 
   }
 
   const handleAddPromoToCart = (promotion: Promotion) => {
-    // Add all products from the promotion to the cart
-    promotion.productIds.forEach((productId) => {
-      const product = products.find((p) => p.id === productId)
-      if (product) {
-        addToCart(product)
-        setIsLoading(false)
-        toast.success(`${product.name} agregado al carrito`, {
-          position: "bottom-right",
-        })
-      }
+    const promoFormatToProduct = {
+      id: promotion.id,
+      name: promotion.name,
+      description: promotion.description,
+      price: promotion.promoPrice,
+      image: promotion.image,
+      categoryId: '1',
+      active: true,
+      promotionPrice: null
+    }
+
+    addToCart(promoFormatToProduct)
+    setIsLoading(false)
+    toast.success(`${promoFormatToProduct.name} agregado al carrito`, {
+      position: "bottom-right",
     })
   }
 
   return (
     <>
-
-
-
-
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {activePromotions.map((promotion, index) => {
           const { originalPrice, promoPrice } = promotion

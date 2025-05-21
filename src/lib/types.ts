@@ -26,7 +26,7 @@ export interface Promotion {
   promoPrice: number // Price the customer will actually pay
   isActive: boolean
   discountCode: string
-  image: string | null
+  image: string
 }
 
 // export interface Promotion {

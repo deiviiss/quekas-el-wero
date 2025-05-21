@@ -17,7 +17,7 @@ export function Footer() {
             <h3 className="text-xl font-bold mb-4">Enlaces</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-gray-300 hover:text-card transition-colors">
+                <Link href="/" className="text-gray-300 hover:text-white transition-colors">
                   Inicio
                 </Link>
               </li>
@@ -46,7 +46,7 @@ export function Footer() {
                 <Facebook className="h-5 w-5" />
               </Link>
               <Link
-                href="#"
+                href="https://www.instagram.com/quekaselwero"
                 className="bg-gray-700 hover:bg-pink-600 p-2 rounded-full transition-colors"
                 aria-label="Instagram"
               >
