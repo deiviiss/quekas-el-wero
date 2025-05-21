@@ -27,7 +27,7 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* Promociones destacadas */}
+        {/* Featured Promotions */}
         <section className="py-6 bg-muted">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl font-bold mb-6 text-center">Promociones Destacadas</h2>
@@ -35,7 +35,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 pt-8 pb-10">
           <div className="flex flex-col md:flex-row gap-6">
             {/* Sidebar with categories */}
             <div className="md:w-1/4">

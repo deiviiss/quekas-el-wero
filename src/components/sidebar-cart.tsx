@@ -127,7 +127,7 @@ export function SidebarCart() {
                     {/* Product image */}
                     <div className="relative h-16 w-16 rounded-md overflow-hidden flex-shrink-0">
                       <Image
-                        src={item.product.image || "/placeholder.svg?height=64&width=64"}
+                        src={item.product.image || "/images/placeholder.webp?height=64&width=64"}
                         alt={item.product.name}
                         fill
                         className="object-cover"

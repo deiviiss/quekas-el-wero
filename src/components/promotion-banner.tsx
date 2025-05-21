@@ -75,7 +75,7 @@ export function PromotionBanner({ promotions, products }: PromotionBannerProps) 
             >
               <div className="relative h-48">
                 <Image
-                  src={promotion.image || "/placeholder.svg?height=300&width=400"}
+                  src={promotion.image || "/images/placeholder.webp?height=300&width=400"}
                   alt={promotion.name}
                   fill
                   className="object-cover"

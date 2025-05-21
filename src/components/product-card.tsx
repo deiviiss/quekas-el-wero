@@ -49,7 +49,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     <motion.div className="bg-card dark:border dark:border-primary rounded-lg shadow-md overflow-hidden" variants={cardVariants} whileHover="hover">
       <div className="relative h-48">
         <Image
-          src={product.image || "/placeholder.svg?height=200&width=300"}
+          src={product.image || "/images/placeholder.webp?height=200&width=300"}
           alt={product.name}
           fill
           className="object-cover"
