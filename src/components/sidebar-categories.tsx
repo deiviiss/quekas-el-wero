@@ -88,7 +88,7 @@ export function SidebarCategories({ categories }: SidebarCategoriesProps) {
             </motion.ul>
           </div>
         </div>
-        <p className="absolute bottom-0 md:-bottom-10 px-4 py-2 text-xs text-muted-foreground">
+        <p className="absolute bottom-0 md:-bottom-12 lg:-bottom-10 px-4 py-2 text-xs text-muted-foreground">
           * Consomé de Cortesía en Sucursal
         </p>
       </div >
