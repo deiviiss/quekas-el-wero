@@ -43,7 +43,7 @@ const initialPromotions: Promotion[] = [
     promoPrice: 300,
     isActive: true,
     discountCode: "COMBO12Q",
-    image: "",
+    image: "https://res.cloudinary.com/dhyds3mnm/image/upload/v1747625091/12_quesabirrias_mas_litro_de_consome_n9cfwf.jpg",
   },
   {
     id: "4",
@@ -57,7 +57,7 @@ const initialPromotions: Promotion[] = [
     promoPrice: 450,
     isActive: true,
     discountCode: "COMBO18Q",
-    image: "",
+    image: "https://res.cloudinary.com/dhyds3mnm/image/upload/v1748065660/18_quesabirrias_mas_litro_de_consome_s6iqpl.jpg",
   },
   {
     id: "5",
@@ -71,7 +71,7 @@ const initialPromotions: Promotion[] = [
     promoPrice: 600,
     isActive: true,
     discountCode: "KGBIRRIA",
-    image: "",
+    image: "https://res.cloudinary.com/dhyds3mnm/image/upload/v1748065635/kilo_de_birria_mas_consome_otufgp.jpg",
   },
   {
     id: "6",
@@ -85,7 +85,7 @@ const initialPromotions: Promotion[] = [
     promoPrice: 75,
     isActive: true,
     discountCode: "TAMAIZ3X75",
-    image: "",
+    image: "https://res.cloudinary.com/dhyds3mnm/image/upload/v1748065652/-_Martes_de_Quesabirria_Tama%C3%ADz_fwkqbr.jpg",
   },
 ];
 
