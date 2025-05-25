@@ -7,6 +7,7 @@ export interface Product {
   categoryId: string
   active: boolean
   promotionPrice: number | null
+  options?: ProductOption[] // Optional, to allow products without options
 }
 
 export interface Category {
@@ -29,15 +30,10 @@ export interface Promotion {
   image: string
 }
 
-// export interface Promotion {
-//   id: string
-//   name: string
-//   description: string
-//   discountPercentage: number
-//   startDate: string
-//   endDate: string
-//   productIds: string[]
-//   active: boolean
-//   discountCode: string
-//   image?: string // Añadimos campo para imagen de promoción
-// }
+export interface ProductOption {
+  id: string;
+  productId: string;
+  name: string;
+  quantity: number; // Optional, to allow products without options
+  extraCost: number;
+}

@@ -12,7 +12,7 @@ import { FaWhatsapp } from "react-icons/fa"
 
 export function SidebarCart() {
   const { isSideCartOpen, closeSideCart } = useUiStore()
-  const { cart, removeFromCart, updateQuantity, clearCart, getSubtotal } = useCartStore()
+  const { cart, removeFromCart, updateQuantity, clearCart, getSubtotal, removeOptionFromCart, updateOptionQuantity } = useCartStore()
 
   // Close sidebar with Escape key
   useEffect(() => {
@@ -26,30 +26,58 @@ export function SidebarCart() {
     return () => window.removeEventListener("keydown", handleKeyDown)
   }, [closeSideCart])
 
+  // const handleWhatsAppCheckout = () => {
+  //   const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER // Business phone number
+
+  //   let message = "🛒 *Nuevo Pedido*\n\n"
+
+  //   // Add products to message
+  //   cart.forEach((item) => {
+  //     const price = item.product.promotionPrice || item.product.price
+  //     message += `*${item.quantity}x* ${item.product.name} - $${price.toFixed(2)}\n`
+  //   })
+
+  //   message += `\n*Total:* $${getSubtotal().toFixed(2)}\n\n`
+  //   message += "¡Gracias por tu pedido! Por favor, presiona el botón de enviar mensaje para continuar."
+
+  //   // Encode message for URL
+  //   const encodedMessage = encodeURIComponent(message)
+
+  //   // Open WhatsApp with message
+  //   window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank")
+
+  //   // Close sidebar after sending order
+  //   closeSideCart()
+  //   clearCart()
+  // }
   const handleWhatsAppCheckout = () => {
     const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER // Business phone number
 
     let message = "🛒 *Nuevo Pedido*\n\n"
 
-    // Add products to message
     cart.forEach((item) => {
       const price = item.product.promotionPrice || item.product.price
       message += `*${item.quantity}x* ${item.product.name} - $${price.toFixed(2)}\n`
+
+      // Si tiene opciones, las desglosamos
+      if (item.product.options && item.product.options.length > 0) {
+        item.product.options.forEach((opt) => {
+          message += `   - ${opt.name} (${opt.quantity}x)\n`
+        })
+      }
     })
 
     message += `\n*Total:* $${getSubtotal().toFixed(2)}\n\n`
     message += "¡Gracias por tu pedido! Por favor, presiona el botón de enviar mensaje para continuar."
 
-    // Encode message for URL
     const encodedMessage = encodeURIComponent(message)
 
-    // Open WhatsApp with message
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank")
 
-    // Close sidebar after sending order
     closeSideCart()
     clearCart()
   }
+
 
   const handleRemoveItem = (productId: string, productName: string) => {
     removeFromCart(productId)
@@ -116,58 +144,117 @@ export function SidebarCart() {
               </div>
             ) : (
               <ul className="space-y-4">
-                {cart.map((item) => (
-                  <motion.li
-                    key={item.product.id}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className="flex gap-3 border-b pb-4"
-                  >
-                    {/* Product image */}
-                    <div className="relative h-16 w-16 rounded-md overflow-hidden flex-shrink-0">
-                      <Image
-                        src={item.product.image || "/images/placeholder.webp?height=64&width=64"}
-                        alt={item.product.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
+                {cart.map((item) => {
+                  const hasOptions = item.product.options && item.product.options.length > 0
 
-                    {/* Product details */}
-                    <div className="flex-1">
-                      <h3 className="font-medium text-sm">{item.product.name}</h3>
-                      <div className="flex items-center mt-1">
-                        <button
-                          onClick={() => updateQuantity(item.product.id, Math.max(1, item.quantity - 1))}
-                          className="text-muted-foreground  hover:text-primary w-6 h-6 flex items-center justify-center"
-                        >
-                          -
-                        </button>
-                        <span className="mx-2 w-6 text-center text-sm">{item.quantity}</span>
-                        <button
-                          onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                          className="text-muted-foreground hover:text-primary w-6 h-6 flex items-center justify-center"
-                        >
-                          +
-                        </button>
+                  return (
+                    <motion.li
+                      key={item.product.id}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="flex gap-3 border-b pb-4"
+                    >
+                      {/* Product image */}
+                      <div className="relative h-16 w-16 rounded-md overflow-hidden flex-shrink-0">
+                        <Image
+                          src={item.product.image || "/images/placeholder.webp?height=64&width=64"}
+                          alt={item.product.name}
+                          fill
+                          className="object-cover"
+                        />
                       </div>
-                    </div>
 
-                    {/* Price and remove button */}
-                    <div className="flex flex-col items-end">
-                      <span className="font-medium text-sm">
-                        ${((item.product.promotionPrice || item.product.price) * item.quantity).toFixed(2)}
-                      </span>
-                      <button
-                        onClick={() => handleRemoveItem(item.product.id, item.product.name)}
-                        className="text-destructive/70 hover:text-destructive mt-1"
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </button>
-                    </div>
-                  </motion.li>
-                ))}
+                      {
+                        hasOptions ? (
+                          <>
+                            {/* Products details */}
+                            <div className="flex-1">
+                              <h3 className="font-medium text-sm">{item.product.name}</h3>
+                              <div className="flex items-center mt-1">
+                                <div className="flex flex-col">
+                                  {
+                                    item.product.options?.map((option) => (
+                                      <div
+                                        key={option.id}
+                                        className="grid grid-cols-2 items-center mr-2 px-2 py-1 rounded text-xs"
+                                      >
+                                        <span className="font-medium">{option.name}: </span>
+                                        <div className="flex items-center justify-around gap-2">
+                                          <button
+                                            onClick={() => updateOptionQuantity(item.product.id, option.id, option.quantity - 1)}
+                                            className="text-muted-foreground  hover:text-primary w-5 h-5 flex items-center justify-center"
+                                          >
+                                            -
+                                          </button>
+                                          <span className="ml-1 text-muted-foreground">{option.quantity}</span>
+                                          <button
+                                            onClick={() => updateOptionQuantity(item.product.id, option.id, option.quantity + 1)}
+                                            className="text-muted-foreground  hover:text-primary w-5 h-5 flex items-center justify-center"
+                                          >
+                                            +
+                                          </button>
+                                        </div>
+                                      </div>
+                                    ))
+                                  }
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Price and remove button */}
+                            <div className="flex flex-col items-end">
+                              <span className="font-medium text-sm">
+                                ${((item.product.promotionPrice || item.product.price) * item.quantity).toFixed(2)}
+                              </span>
+                              <button
+                                onClick={() => handleRemoveItem(item.product.id, item.product.name)}
+                                className="text-destructive/70 hover:text-destructive mt-1"
+                              >
+                                <Trash2 className="h-4 w-4" />
+                              </button>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            {/* Product details */}
+                            <div className="flex-1">
+                              <h3 className="font-medium text-sm">{item.product.name}</h3>
+                              <div className="flex items-center mt-1">
+                                <button
+                                  onClick={() => updateQuantity(item.product.id, Math.max(1, item.quantity - 1))}
+                                  className="text-muted-foreground  hover:text-primary w-6 h-6 flex items-center justify-center"
+                                >
+                                  -
+                                </button>
+                                <span className="mx-2 w-6 text-center text-sm">{item.quantity}</span>
+                                <button
+                                  onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
+                                  className="text-muted-foreground hover:text-primary w-6 h-6 flex items-center justify-center"
+                                >
+                                  +
+                                </button>
+                              </div>
+                            </div>
+
+                            {/* Price and remove button */}
+                            <div className="flex flex-col items-end">
+                              <span className="font-medium text-sm">
+                                ${((item.product.promotionPrice || item.product.price) * item.quantity).toFixed(2)}
+                              </span>
+                              <button
+                                onClick={() => handleRemoveItem(item.product.id, item.product.name)}
+                                className="text-destructive/70 hover:text-destructive mt-1"
+                              >
+                                <Trash2 className="h-4 w-4" />
+                              </button>
+                            </div>
+                          </>
+                        )
+                      }
+                    </motion.li>
+                  )
+                })}
               </ul>
             )}
           </div>

@@ -1,6 +1,32 @@
 'use server'
 
-import { Product } from "@/lib/types"
+import { Product, ProductOption } from "@/lib/types"
+
+const productOptions: ProductOption[] = [
+  {
+    id: "opt-1",
+    productId: "4014",
+    name: "Horchata",
+    extraCost: 0,
+    quantity: 0
+  },
+  {
+    id: "opt-2",
+    productId: "4014",
+    name: "Jamaica",
+    extraCost: 0,
+    quantity: 0
+  },
+  {
+    id: "opt-3",
+    productId: "4014",
+    name: "Limón",
+    extraCost: 0,
+    quantity: 0
+  },
+];
+
+// FILTRA LA CATEGORÍA DE PRODUCTOS DE PROMOCIONES
 
 const initialProducts: Product[] = [
   {
@@ -129,7 +155,7 @@ const initialProducts: Product[] = [
     price: 120,
     categoryId: "2",
     description: "Costra de queso crujiente rellena de birria. ¡Explosión de sabor en cada mordida!",
-    image: "",
+    image: "https://res.cloudinary.com/dhyds3mnm/image/upload/v1748137828/costrabirria_pp3egz.jpg",
     active: true,
     promotionPrice: null,
   },
@@ -179,7 +205,7 @@ const initialProducts: Product[] = [
     price: 30,
     categoryId: "3",
     description: "Quesabirria envuelta en suave tortilla de harina. Ideal para los que quieren variar.",
-    image: "",
+    image: "https://res.cloudinary.com/dhyds3mnm/image/upload/v1748137828/quesabirria_de_harina_lui1ji.jpg",
     active: true,
     promotionPrice: null,
   },
@@ -232,9 +258,15 @@ const initialProducts: Product[] = [
     image: "https://res.cloudinary.com/dhyds3mnm/image/upload/v1748065645/variedad_de_refrescos_de_naturales_vsliuq.jpg",
     active: true,
     promotionPrice: null,
+    options: [
+      { id: "opt-1", productId: "4014", name: "Naranja dulce", extraCost: 0, quantity: 0 },
+      { id: "opt-2", productId: "4014", name: "Fresa con limón", extraCost: 0, quantity: 0 },
+      { id: "opt-3", productId: "4014", name: "Lima", extraCost: 0, quantity: 0 },
+      { id: "opt-4", productId: "4014", name: "Chaya con piña", extraCost: 0, quantity: 0 },
+      { id: "opt-5", productId: "4014", name: "Jamaica", extraCost: 0, quantity: 0 },
+    ]
   },
 ];
-
 
 export async function getProducts(): Promise<Product[]> {
   try {
